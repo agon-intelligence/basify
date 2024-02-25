@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark-mode"{{else match @custom.color_scheme "Auto"}} class="auto-color"{{/match}}>
+<head>
+    <title>{{meta_title}}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preload" as="style" href="{{asset "built/index.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/index.css"}}" />
+
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+    <div class="viewport">
+        <div class="header"></div>
+        <div class="navigation">
+            
+        </div>
+        <div class="content"></div>
+        <div class="footer"></div>
+    </div>
+</body>

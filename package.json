@@ -1,0 +1,14 @@
+{
+    "name": "Basify",
+    "description": "A free Ghost theme for everyone who likes a simplicstic style",
+    "demo": "https://agon-intelligence.com/basify",
+    "version": "0.0.1",
+    "engines": {
+        "ghost": ">=5.0.0"
+    },
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": "assets/screenshot-mobile.jpg"
+    }
+}
