@@ -15,11 +15,25 @@
 </head>
 <body class="{{body_class}}">
     <div class="viewport">
-        <div class="header"></div>
-        <div class="navigation">
-            
+        <div class="header">
+            {{#if @site.logo}}
+                <img src="{{@site.logo}}" alt="{{@site.title}}">
+            {{else}}
+                <h1 class="main-title">{{@site.title}}</h1>
+            {{/if}}
         </div>
-        <div class="content"></div>
-        <div class="footer"></div>
-    </div>
+        <div class="navigation">
+            {{navigation}}
+        </div>
+        <div class="content">
+            {{{body}}}
+        </div>
+        <div class="footer">
+            <div class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
+            <nav class="site-footer-nav"> 
+                {{navigation type="secondary"}}
+            </nav>
+            <div class="powered-by"><a href="https://agon-intelligence.com/" target="_blank" rel="noopener">Powered by Agon Intelligence</a></div>
+        </div> 
+    </div> 
 </body>
