@@ -10,5 +10,44 @@
     "screenshots": {
         "desktop": "assets/screenshot-desktop.jpg",
         "mobile": "assets/screenshot-mobile.jpg"
+    },
+    "scripts": {
+        "dev": "gulp",
+        "zip": "gulp zip",
+        "test": "gscan .",
+        "test:ci": "gscan --fatal --verbose .",
+        "pretest": "gulp build",
+        "preship": "yarn test",
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
+        "postship": "git fetch && gulp release"
+    },
+    "author": {
+        "name": "Hendrik Michaelsen",
+        "email": "management@agon-intelligence.com",
+        "url": "https://agon-intelligence.com/"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Magazine"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/agon-intelligence/basify.git"
+    },
+    "bugs": "https://github.com/agon-intelligence/basify/issues",
+    "contributors": "https://github.com/agon-intelligence/basify/graphs/contributors",
+    "dependencies": {
+        "@tryghost/release-utils": "^0.8.1",
+        "gulp": "^5.0.0",
+        "inquirer": "^9.2.23",
+        "pump": "^3.0.0"
     }
 }

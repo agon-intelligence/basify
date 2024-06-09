@@ -1,0 +1,7 @@
+body {
+    font-family: monospace;
+    white-space: pre;
+    overflow-wrap: normal;
+    word-wrap: normal;
+    white-space: pre-wrap;
+}
