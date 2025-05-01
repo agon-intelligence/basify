@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACI,qBAAsB,CAEtB,oBAAqB,CADrB,eAAgB,CAEhB,gBAAiB,CACjB,oBACJ","file":"index.css","sourcesContent":["body {\n    font-family: monospace;\n    white-space: pre;\n    overflow-wrap: normal;\n    word-wrap: normal;\n    white-space: pre-wrap;\n}"]}

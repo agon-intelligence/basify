@@ -2,15 +2,12 @@ const {series, watch, src, dest, parallel} = require('gulp');
 const pump = require('pump');
 const path = require('path');
 const releaseUtils = require('@tryghost/release-utils');
-const inquirer = require('inquirer');
 
 // gulp plugins and utils
 const livereload = require('gulp-livereload');
 const postcss = require('gulp-postcss');
-const zip = require('gulp-zip');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
-const beeper = require('beeper');
 const fs = require('fs');
 
 // postcss plugins
@@ -23,6 +20,10 @@ const REPO = 'agon-intelligence/basify';
 const REPO_READONLY = 'agon-intelligence/basify';
 const CHANGELOG_PATH = path.join(process.cwd(), '.', 'changelog.md');
 
+const inquirer = loadModule('inquirer');
+const zip = loadModule('gulp-zip');
+const beeper = loadModule('beeper');
+
 function serve(done) {
     livereload.listen();
     done();
@@ -31,7 +32,7 @@ function serve(done) {
 const handleError = (done) => {
     return function (err) {
         if (err) {
-            beeper();
+            //beeper();
         }
         return done(err);
     };
@@ -95,9 +96,15 @@ const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], hbs);
 const watcher = parallel(cssWatcher, jsWatcher, hbsWatcher);
 const build = series(css, js);
 
+
 exports.build = build;
 exports.zip = series(build, zipper);
 exports.default = series(build, serve, watcher);
+
+async function loadModule(moduleName) {
+    const module = await import(moduleName);
+    return module.default || module; // Handling both default and named exports
+}
 
 exports.release = async () => {
     // @NOTE: https://yarnpkg.com/lang/en/docs/cli/version/
