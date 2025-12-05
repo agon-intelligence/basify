@@ -16,10 +16,7 @@
         "zip": "gulp zip",
         "test": "gscan .",
         "test:ci": "gscan --fatal --verbose .",
-        "pretest": "gulp build",
-        "preship": "yarn test",
-        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
-        "postship": "git fetch && gulp release"
+        "pretest": "gulp build"
     },
     "author": {
         "name": "Hendrik Michaelsen",
@@ -33,6 +30,15 @@
             "Magazine"
         ]
     },
+    "config": {
+        "custom": {
+            "color_scheme": {
+                "type": "select",
+                "options": ["Light", "Dark", "Auto"],
+                "default": "Auto"
+            }
+        }
+    },
     "keywords": [
         "ghost",
         "theme",
@@ -43,20 +49,17 @@
         "url": "https://github.com/agon-intelligence/basify.git"
     },
     "bugs": "https://github.com/agon-intelligence/basify/issues",
-    "contributors": "https://github.com/agon-intelligence/basify/graphs/contributors",
+    "contributors": [
+        "https://github.com/agon-intelligence/basify/graphs/contributors"
+    ],
     "dependencies": {
-        "@tryghost/release-utils": "^0.8.1",
         "autoprefixer": "^10.4.19",
-        "beeper": "^3.0.0",
         "cssnano": "^7.0.2",
         "gulp": "^5.0.0",
         "gulp-concat": "^2.6.1",
-        "gulp-livereload": "^4.0.2",
         "gulp-postcss": "^10.0.0",
         "gulp-uglify": "^3.0.2",
         "gulp-zip": "^6.0.0",
-        "inquirer": "^9.2.23",
-        "postcss-color-mod-function": "^3.0.3",
         "postcss-easy-import": "^4.0.0",
         "pump": "^3.0.0"
     }

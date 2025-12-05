@@ -1,0 +1,42 @@
+{{!< default}}
+
+{{#post}}
+<article class="article {{post_class}}">
+
+    <header class="article-header">
+        {{#if feature_image}}
+            <img class="article-image" src="{{feature_image}}" alt="{{title}}" />
+        {{/if}}
+
+        <h1 class="article-title">{{title}}</h1>
+
+        <div class="article-meta">
+            <time class="article-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
+            {{#if primary_tag}}
+                <span class="article-meta-tag">{{primary_tag.name}}</span>
+            {{/if}}
+        </div>
+    </header>
+
+    <section class="article-content">
+        {{content}}
+    </section>
+
+    <footer class="article-footer">
+        <div class="article-author">
+            {{#primary_author}}
+                {{#if profile_image}}
+                    <img class="author-avatar" src="{{profile_image}}" alt="{{name}}" />
+                {{/if}}
+                <div class="author-info">
+                    <h4 class="author-name">{{name}}</h4>
+                    {{#if bio}}
+                        <p class="author-bio">{{bio}}</p>
+                    {{/if}}
+                </div>
+            {{/primary_author}}
+        </div>
+    </footer>
+
+</article>
+{{/post}}
