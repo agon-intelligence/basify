@@ -47,7 +47,6 @@ p {
 
 /* Header styling */
 .header {
-    margin-bottom: 2em;
     padding-bottom: 1em;
     border-bottom: 1px solid #000;
     text-align: center;
@@ -69,9 +68,12 @@ p {
 /* Navigation */
 .navigation {
     margin-bottom: 2em;
-    padding-bottom: 1em;
     border-bottom: 1px solid #000;
     text-align: center;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navigation ul {
